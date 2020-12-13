@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add New Entry
+{% endblock %}
+
+
+{% block body %}
+    {% if title %}
+        <h3>The entry "{{ title }}" already exists.</h3>
+        <br>
+    {% endif %}
+
+    <form action="/add_entry" method="post">
+        {% csrf_token %}
+        {{ entry_form.title.label }}: {{ entry_form.title }}
+        <br>
+        <br>
+        {{ entry_form.entry.label }}: 
+        <br>
+        {{ entry_form.entry }}
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
