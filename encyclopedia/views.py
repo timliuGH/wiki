@@ -98,8 +98,9 @@ def add(request):
             entry_text = form_data.cleaned_data["entry"]
 
             # Save entry to disk
-            with open('entries/'+title+'.md', 'w') as f:
-                f.write(entry_text)
+            # with open('entries/'+title+'.md', 'w') as f:
+                # f.write(entry_text)
+            util.save_entry(title, entry_text)
 
             # Take user to new entry
             return redirect("entry", title)
