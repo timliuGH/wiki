@@ -1,5 +1,6 @@
 from django import forms
 from django.shortcuts import render, redirect
+from random import randrange
 
 from . import util
 
@@ -167,3 +168,10 @@ def edit(request):
             "title": title,
             "entry_form": EntryForm({"title": title, "entry": entry})
         })
+
+
+def random(request):
+    entries = util.list_entries()
+    num_entries = len(entries)
+    random_entry = randrange(num_entries)
+    return redirect("entry", entries[random_entry])
