@@ -2,6 +2,8 @@ from django import forms
 from django.shortcuts import render, redirect
 from random import randrange
 
+from markdown2 import markdown
+
 from . import util
 
 
@@ -64,7 +66,7 @@ def search(request):
 
 
 def entry(request, title):
-    entry = util.get_entry(title)
+    entry = markdown(util.get_entry(title))
 
     if not entry:
         return render(request, "encyclopedia/noentry.html")

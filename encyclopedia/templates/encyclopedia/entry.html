@@ -6,7 +6,7 @@
 
 {% block body %}
 
-    {{ entry }}
+    {{ entry|safe }}
     <br>
     <br>
     <form action="{% url 'edit' %}" method="get">
