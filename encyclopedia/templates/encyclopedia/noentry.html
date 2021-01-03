@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Entry Not Found
+{% endblock %}
+
+{% block body %}
+    <h1>Entry Not Found</h1>
+    <p>This wiki does not have an entry with that exact name.</p>
+    <form action="{% url 'add' %}" method="get">
+        <input type="submit" value="Create Entry">
+    </form>
+{% endblock %}

@@ -7,5 +7,11 @@
 {% block body %}
 
     {{ entry }}
+    <br>
+    <br>
+    <form action="{% url 'edit' %}" method="get">
+        {{ edit }}
+        <input type="submit" value="Edit Entry">
+    </form>
 
 {% endblock %}
